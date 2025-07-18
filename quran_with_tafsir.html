@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>القرآن الكريم كاملاً مع التفسير الميسر | مصحف إلكتروني تفاعلي</title>
+    <meta name="description" content="اقرأ القرآن الكريم كاملاً بدون نقص مع التفسير الميسر. مصحف إلكتروني تفاعلي يحتوي على جميع السور والآيات مع إمكانية عرض التفسير بالضغط على أي آية.">
+    <meta name="keywords" content="القرآن الكريم, التفسير الميسر, مصحف إلكتروني, قرآن كامل, تفسير القرآن, آيات قرآنية, سور القرآن, مصحف تفاعلي, القرآن العربي">
+    <meta name="author" content="موقع القرآن الكريم">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Arabic">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="القرآن الكريم كاملاً مع التفسير الميسر">
+    <meta property="og:description" content="اقرأ القرآن الكريم كاملاً بدون نقص مع التفسير الميسر. مصحف إلكتروني تفاعلي يحتوي على جميع السور والآيات.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:site_name" content="القرآن الكريم مع التفسير الميسر">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="القرآن الكريم كاملاً مع التفسير الميسر">
+    <meta name="twitter:description" content="اقرأ القرآن الكريم كاملاً بدون نقص مع التفسير الميسر. مصحف إلكتروني تفاعلي.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com/quran-with-tafsir.html">
+    
+    <!-- Structured Data for Islamic Content -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "القرآن الكريم مع التفسير الميسر",
+        "description": "مصحف إلكتروني تفاعلي يحتوي على القرآن الكريم كاملاً مع التفسير الميسر",
+        "url": "https://example.com/quran-with-tafsir.html",
+        "inLanguage": "ar",
+        "about": {
+            "@type": "Thing",
+            "name": "القرآن الكريم",
+            "description": "الكتاب المقدس في الإسلام"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "موقع القرآن الكريم"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .controls {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .surah-selector {
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .surah-selector:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .font-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .font-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .quran-content {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .surah {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+        }
+
+        .surah:last-child {
+            border-bottom: none;
+        }
+
+        .surah-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .surah-name {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .surah-info {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .ayah {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-right: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .ayah:hover {
+            background: #e8f4fd;
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .ayah.active {
+            background: #e3f2fd;
+            border-right-color: #2196f3;
+        }
+
+        .ayah-text {
+            font-size: 1.8em;
+            line-height: 2.2;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .ayah-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .tafsir-container {
+            margin-top: 15px;
+            padding: 20px;
+            background: #fff3e0;
+            border-radius: 10px;
+            border-right: 4px solid #ff9800;
+            display: none;
+        }
+
+        .tafsir-container.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .tafsir-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tafsir-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #424242;
+            text-align: justify;
+        }
+
+        .loading-tafsir {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        .error-tafsir {
+            text-align: center;
+            color: #d32f2f;
+            font-style: italic;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 1.5em;
+            color: #667eea;
+            padding: 50px;
+        }
+
+        .footer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            color: #7f8c8d;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .surah-selector {
+                min-width: auto;
+            }
+
+            .font-controls {
+                justify-content: center;
+            }
+
+            .quran-content {
+                padding: 20px;
+            }
+
+            .ayah-text {
+                font-size: 1.5em;
+            }
+
+            .surah-name {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .ayah-text {
+                font-size: 1.3em;
+            }
+
+            .ayah {
+                padding: 15px;
+            }
+
+            .surah-name {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>القرآن الكريم</h1>
+            <p>مع التفسير الميسر - كاملاً غير منقوص</p>
+        </div>
+
+        <div class="controls">
+            <select id="surahSelector" class="surah-selector">
+                <option value="">اختر السورة</option>
+            </select>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-0.1)">أ-</button>
+                <button class="font-btn" onclick="changeFontSize(0.1)">أ+</button>
+                <button class="font-btn" onclick="resetView()">إعادة تعيين</button>
+            </div>
+        </div>
+
+        <div class="quran-content" id="quranContent">
+            <div class="loading">جاري تحميل القرآن الكريم...</div>
+        </div>
+
+        <div class="footer">
+            <p>القرآن الكريم مع التفسير الميسر - كاملاً غير منقوص | جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+
+    <script>
+        let currentFontSize = 1.8;
+        let quranData = [];
+        let currentOpenTafsir = null;
+
+        // بيانات السور
+        const surahs = [
+            { number: 1, name: "الفاتحة", verses: 7, type: "مكية" },
+            { number: 2, name: "البقرة", verses: 286, type: "مدنية" },
+            { number: 3, name: "آل عمران", verses: 200, type: "مدنية" },
+            { number: 4, name: "النساء", verses: 176, type: "مدنية" },
+            { number: 5, name: "المائدة", verses: 120, type: "مدنية" },
+            { number: 6, name: "الأنعام", verses: 165, type: "مكية" },
+            { number: 7, name: "الأعراف", verses: 206, type: "مكية" },
+            { number: 8, name: "الأنفال", verses: 75, type: "مدنية" },
+            { number: 9, name: "التوبة", verses: 129, type: "مدنية" },
+            { number: 10, name: "يونس", verses: 109, type: "مكية" },
+            { number: 11, name: "هود", verses: 123, type: "مكية" },
+            { number: 12, name: "يوسف", verses: 111, type: "مكية" },
+            { number: 13, name: "الرعد", verses: 43, type: "مدنية" },
+            { number: 14, name: "إبراهيم", verses: 52, type: "مكية" },
+            { number: 15, name: "الحجر", verses: 99, type: "مكية" },
+            { number: 16, name: "النحل", verses: 128, type: "مكية" },
+            { number: 17, name: "الإسراء", verses: 111, type: "مكية" },
+            { number: 18, name: "الكهف", verses: 110, type: "مكية" },
+            { number: 19, name: "مريم", verses: 98, type: "مكية" },
+            { number: 20, name: "طه", verses: 135, type: "مكية" },
+            { number: 21, name: "الأنبياء", verses: 112, type: "مكية" },
+            { number: 22, name: "الحج", verses: 78, type: "مدنية" },
+            { number: 23, name: "المؤمنون", verses: 118, type: "مكية" },
+            { number: 24, name: "النور", verses: 64, type: "مدنية" },
+            { number: 25, name: "الفرقان", verses: 77, type: "مكية" },
+            { number: 26, name: "الشعراء", verses: 227, type: "مكية" },
+            { number: 27, name: "النمل", verses: 93, type: "مكية" },
+            { number: 28, name: "القصص", verses: 88, type: "مكية" },
+            { number: 29, name: "العنكبوت", verses: 69, type: "مكية" },
+            { number: 30, name: "الروم", verses: 60, type: "مكية" },
+            { number: 31, name: "لقمان", verses: 34, type: "مكية" },
+            { number: 32, name: "السجدة", verses: 30, type: "مكية" },
+            { number: 33, name: "الأحزاب", verses: 73, type: "مدنية" },
+            { number: 34, name: "سبأ", verses: 54, type: "مكية" },
+            { number: 35, name: "فاطر", verses: 45, type: "مكية" },
+            { number: 36, name: "يس", verses: 83, type: "مكية" },
+            { number: 37, name: "الصافات", verses: 182, type: "مكية" },
+            { number: 38, name: "ص", verses: 88, type: "مكية" },
+            { number: 39, name: "الزمر", verses: 75, type: "مكية" },
+            { number: 40, name: "غافر", verses: 85, type: "مكية" },
+            { number: 41, name: "فصلت", verses: 54, type: "مكية" },
+            { number: 42, name: "الشورى", verses: 53, type: "مكية" },
+            { number: 43, name: "الزخرف", verses: 89, type: "مكية" },
+            { number: 44, name: "الدخان", verses: 59, type: "مكية" },
+            { number: 45, name: "الجاثية", verses: 37, type: "مكية" },
+            { number: 46, name: "الأحقاف", verses: 35, type: "مكية" },
+            { number: 47, name: "محمد", verses: 38, type: "مدنية" },
+            { number: 48, name: "الفتح", verses: 29, type: "مدنية" },
+            { number: 49, name: "الحجرات", verses: 18, type: "مدنية" },
+            { number: 50, name: "ق", verses: 45, type: "مكية" },
+            { number: 51, name: "الذاريات", verses: 60, type: "مكية" },
+            { number: 52, name: "الطور", verses: 49, type: "مكية" },
+            { number: 53, name: "النجم", verses: 62, type: "مكية" },
+            { number: 54, name: "القمر", verses: 55, type: "مكية" },
+            { number: 55, name: "الرحمن", verses: 78, type: "مكية" },
+            { number: 56, name: "الواقعة", verses: 96, type: "مكية" },
+            { number: 57, name: "الحديد", verses: 29, type: "مدنية" },
+            { number: 58, name: "المجادلة", verses: 22, type: "مدنية" },
+            { number: 59, name: "الحشر", verses: 24, type: "مدنية" },
+            { number: 60, name: "الممتحنة", verses: 13, type: "مدنية" },
+            { number: 61, name: "الصف", verses: 14, type: "مدنية" },
+            { number: 62, name: "الجمعة", verses: 11, type: "مدنية" },
+            { number: 63, name: "المنافقون", verses: 11, type: "مدنية" },
+            { number: 64, name: "التغابن", verses: 18, type: "مدنية" },
+            { number: 65, name: "الطلاق", verses: 12, type: "مدنية" },
+            { number: 66, name: "التحريم", verses: 12, type: "مدنية" },
+            { number: 67, name: "الملك", verses: 30, type: "مكية" },
+            { number: 68, name: "القلم", verses: 52, type: "مكية" },
+            { number: 69, name: "الحاقة", verses: 52, type: "مكية" },
+            { number: 70, name: "المعارج", verses: 44, type: "مكية" },
+            { number: 71, name: "نوح", verses: 28, type: "مكية" },
+            { number: 72, name: "الجن", verses: 28, type: "مكية" },
+            { number: 73, name: "المزمل", verses: 20, type: "مكية" },
+            { number: 74, name: "المدثر", verses: 56, type: "مكية" },
+            { number: 75, name: "القيامة", verses: 40, type: "مكية" },
+            { number: 76, name: "الإنسان", verses: 31, type: "مدنية" },
+            { number: 77, name: "المرسلات", verses: 50, type: "مكية" },
+            { number: 78, name: "النبأ", verses: 40, type: "مكية" },
+            { number: 79, name: "النازعات", verses: 46, type: "مكية" },
+            { number: 80, name: "عبس", verses: 42, type: "مكية" },
+            { number: 81, name: "التكوير", verses: 29, type: "مكية" },
+            { number: 82, name: "الانفطار", verses: 19, type: "مكية" },
+            { number: 83, name: "المطففين", verses: 36, type: "مكية" },
+            { number: 84, name: "الانشقاق", verses: 25, type: "مكية" },
+            { number: 85, name: "البروج", verses: 22, type: "مكية" },
+            { number: 86, name: "الطارق", verses: 17, type: "مكية" },
+            { number: 87, name: "الأعلى", verses: 19, type: "مكية" },
+            { number: 88, name: "الغاشية", verses: 26, type: "مكية" },
+            { number: 89, name: "الفجر", verses: 30, type: "مكية" },
+            { number: 90, name: "البلد", verses: 20, type: "مكية" },
+            { number: 91, name: "الشمس", verses: 15, type: "مكية" },
+            { number: 92, name: "الليل", verses: 21, type: "مكية" },
+            { number: 93, name: "الضحى", verses: 11, type: "مكية" },
+            { number: 94, name: "الشرح", verses: 8, type: "مكية" },
+            { number: 95, name: "التين", verses: 8, type: "مكية" },
+            { number: 96, name: "العلق", verses: 19, type: "مكية" },
+            { number: 97, name: "القدر", verses: 5, type: "مكية" },
+            { number: 98, name: "البينة", verses: 8, type: "مدنية" },
+            { number: 99, name: "الزلزلة", verses: 8, type: "مدنية" },
+            { number: 100, name: "العاديات", verses: 11, type: "مكية" },
+            { number: 101, name: "القارعة", verses: 11, type: "مكية" },
+            { number: 102, name: "التكاثر", verses: 8, type: "مكية" },
+            { number: 103, name: "العصر", verses: 3, type: "مكية" },
+            { number: 104, name: "الهمزة", verses: 9, type: "مكية" },
+            { number: 105, name: "الفيل", verses: 5, type: "مكية" },
+            { number: 106, name: "قريش", verses: 4, type: "مكية" },
+            { number: 107, name: "الماعون", verses: 7, type: "مكية" },
+            { number: 108, name: "الكوثر", verses: 3, type: "مكية" },
+            { number: 109, name: "الكافرون", verses: 6, type: "مكية" },
+            { number: 110, name: "النصر", verses: 3, type: "مدنية" },
+            { number: 111, name: "المسد", verses: 5, type: "مكية" },
+            { number: 112, name: "الإخلاص", verses: 4, type: "مكية" },
+            { number: 113, name: "الفلق", verses: 5, type: "مكية" },
+            { number: 114, name: "الناس", verses: 6, type: "مكية" }
+        ];
+
+        // تحميل بيانات القرآن
+        async function loadQuranData() {
+            try {
+                const response = await fetch('https://api.alquran.cloud/v1/quran/ar.alafasy');
+                const data = await response.json();
+                quranData = data.data.surahs;
+                displayQuran();
+                populateSurahSelector();
+            } catch (error) {
+                console.error('خطأ في تحميل بيانات القرآن:', error);
+                document.getElementById('quranContent').innerHTML = 
+                    '<div class="error">عذراً، حدث خطأ في تحميل القرآن الكريم. يرجى المحاولة مرة أخرى.</div>';
+            }
+        }
+
+        // عرض القرآن
+        function displayQuran() {
+            const content = document.getElementById('quranContent');
+            let html = '';
+
+            quranData.forEach((surah, surahIndex) => {
+                const surahInfo = surahs.find(s => s.number === surah.number);
+                html += `
+                    <div class="surah" id="surah-${surah.number}">
+                        <div class="surah-header">
+                            <div class="surah-name">${surah.name}</div>
+                            <div class="surah-info">
+                                ${surahInfo ? `${surahInfo.type} • ${surahInfo.verses} آية` : ''}
+                            </div>
+                        </div>
+                `;
+
+                surah.ayahs.forEach((ayah, ayahIndex) => {
+                    if (ayah.numberInSurah === 1 && surah.number !== 1 && surah.number !== 9) {
+                        // إضافة البسملة للسور (عدا الفاتحة والتوبة)
+                        html += `
+                            <div class="ayah">
+                                <div class="ayah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                            </div>
+                        `;
+                    }
+                    
+                    html += `
+                        <div class="ayah" onclick="toggleTafsir(${surah.number}, ${ayah.numberInSurah})" 
+                             id="ayah-${surah.number}-${ayah.numberInSurah}">
+                            <div class="ayah-number">${ayah.numberInSurah}</div>
+                            <div class="ayah-text" style="font-size: ${currentFontSize}em;">
+                                ${ayah.text}
+                            </div>
+                            <div class="tafsir-container" id="tafsir-${surah.number}-${ayah.numberInSurah}">
+                                <div class="tafsir-title">
+                                    📖 التفسير الميسر
+                                </div>
+                                <div class="tafsir-text loading-tafsir">
+                                    جاري تحميل التفسير...
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+            });
+
+            content.innerHTML = html;
+        }
+
+        // تبديل عرض التفسير
+        async function toggleTafsir(surahNumber, ayahNumber) {
+            const tafsirContainer = document.getElementById(`tafsir-${surahNumber}-${ayahNumber}`);
+            const ayahElement = document.getElementById(`ayah-${surahNumber}-${ayahNumber}`);
+            
+            // إغلاق التفسير المفتوح حالياً
+            if (currentOpenTafsir && currentOpenTafsir !== tafsirContainer) {
+                currentOpenTafsir.classList.remove('show');
+                currentOpenTafsir.parentElement.classList.remove('active');
+            }
+
+            // تبديل التفسير الحالي
+            if (tafsirContainer.classList.contains('show')) {
+                tafsirContainer.classList.remove('show');
+                ayahElement.classList.remove('active');
+                currentOpenTafsir = null;
+            } else {
+                tafsirContainer.classList.add('show');
+                ayahElement.classList.add('active');
+                currentOpenTafsir = tafsirContainer;
+                
+                // تحميل التفسير إذا لم يكن محملاً
+                const tafsirText = tafsirContainer.querySelector('.tafsir-text');
+                if (tafsirText.classList.contains('loading-tafsir')) {
+                    await loadTafsir(surahNumber, ayahNumber, tafsirText);
+                }
+            }
+        }
+
+        // تحميل التفسير من API
+        async function loadTafsir(surahNumber, ayahNumber, tafsirElement) {
+            try {
+                const response = await fetch(`http://api.quran-tafseer.com/tafseer/1/${surahNumber}/${ayahNumber}`);
+                const data = await response.json();
+                
+                if (data && data.text) {
+                    tafsirElement.innerHTML = data.text;
+                    tafsirElement.classList.remove('loading-tafsir');
+                } else {
+                    tafsirElement.innerHTML = 'عذراً، التفسير غير متوفر لهذه الآية حالياً.';
+                    tafsirElement.classList.remove('loading-tafsir');
+                    tafsirElement.classList.add('error-tafsir');
+                }
+            } catch (error) {
+                console.error('خطأ في تحميل التفسير:', error);
+                tafsirElement.innerHTML = 'عذراً، حدث خطأ في تحميل التفسير. يرجى المحاولة مرة أخرى.';
+                tafsirElement.classList.remove('loading-tafsir');
+                tafsirElement.classList.add('error-tafsir');
+            }
+        }
+
+        // ملء قائمة السور
+        function populateSurahSelector() {
+            const selector = document.getElementById('surahSelector');
+            surahs.forEach(surah => {
+                const option = document.createElement('option');
+                option.value = surah.number;
+                option.textContent = `${surah.number}. ${surah.name}`;
+                selector.appendChild(option);
+            });
+
+            selector.addEventListener('change', function() {
+                if (this.value) {
+                    const surahElement = document.getElementById(`surah-${this.value}`);
+                    if (surahElement) {
+                        surahElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        }
+
+        // تغيير حجم الخط
+        function changeFontSize(delta) {
+            currentFontSize += delta;
+            currentFontSize = Math.max(0.8, Math.min(3, currentFontSize));
+            
+            const ayahTexts = document.querySelectorAll('.ayah-text');
+            ayahTexts.forEach(text => {
+                text.style.fontSize = currentFontSize + 'em';
+            });
+        }
+
+        // إعادة تعيين العرض
+        function resetView() {
+            currentFontSize = 1.8;
+            const ayahTexts = document.querySelectorAll('.ayah-text');
+            ayahTexts.forEach(text => {
+                text.style.fontSize = currentFontSize + 'em';
+            });
+            
+            // إغلاق جميع التفاسير المفتوحة
+            const openTafsirs = document.querySelectorAll('.tafsir-container.show');
+            openTafsirs.forEach(tafsir => {
+                tafsir.classList.remove('show');
+                tafsir.parentElement.classList.remove('active');
+            });
+            currentOpenTafsir = null;
+            
+            // العودة إلى أعلى الصفحة
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // إعادة تعيين اختيار السورة
+            document.getElementById('surahSelector').value = '';
+        }
+
+        // تحميل البيانات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuranData();
+        });
+    </script>
+</body>
+</html>
+
